@@ -33,6 +33,22 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    flavorDimensions "devices"
+    productFlavors {
+        tablet {
+            applicationId
+            "com.sample.browserstack.samplecalculator.app.tablet"
+            versionName "1.0-tablet"
+            dimension "devices"
+        }
+        phone {
+            applicationId
+            "com.sample.browserstack.samplecalculator.app.phone"
+            versionName "1.0-phone"
+            dimension "devices"
+        }
+    }
 }
 
 dependencies {
@@ -46,15 +62,4 @@ dependencies {
 
 browserStackConfig {
     devices = ['Samsung Galaxy S8-7.0']
-}
-
-runDebugBuildOnBrowserstack {
-    username = "hiteshraghuvansh2"
-    accessKey = "qyZKtjHYVnhsougiNxYD"
-    devices = ['Samsung Galaxy S8-7.0']
-}
-
-uploadBuildToBrowserstackAppLive {
-    username = "hiteshraghuvansh2"
-    accessKey = "qyZKtjHYVnhsougiNxYD"
 }
