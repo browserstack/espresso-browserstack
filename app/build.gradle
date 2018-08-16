@@ -35,13 +35,16 @@ browserStackConfig {
     devices = ['Samsung Galaxy S8-7.0']
 }
 
+project.ext.browserstack_username = System.getenv('BROWSERSTACK_USERNAME')
+project.ext.browserstack_access_key = System.getenv('BROWSERSTACK_ACCESS_KEY')
+
 runDebugBuildOnBrowserstack {
-    username = "hiteshraghuvansh2"
-    accessKey = "qyZKtjHYVnhsougiNxYD"
+    username = browserstack_username
+    accessKey = browserstack_access_key
     devices = ['Samsung Galaxy S8-7.0']
 }
 
 uploadBuildToBrowserstackAppLive {
-    username = "hiteshraghuvansh2"
-    accessKey = "qyZKtjHYVnhsougiNxYD"
+    username = browserstack_username
+    accessKey = browserstack_access_key
 }
