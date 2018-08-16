@@ -2,15 +2,8 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.browserstack.gradle'
 
 buildscript {
-    repositories {
-        maven {
-            url "/Users/hitesh/.m2/repository/"
-            // url "https://plugins.gradle.org/m2"
-        }
-    }
     dependencies {
-        classpath 'com.browserstack:gradle:2.3.0'
-        // classpath 'com.browserstack.gradle:com.browserstack.gradle.gradle.plugin:2.2.0'
+        classpath files('PLUGIN_JAR_PATH')
     }
 }
 
