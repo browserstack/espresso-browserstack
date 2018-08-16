@@ -1,12 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.browserstack.gradle'
 
-buildscript {
-    dependencies {
-        classpath files('PLUGIN_JAR_PATH')
-    }
-}
-
 android {
     compileSdkVersion 26
     dataBinding.enabled = true
