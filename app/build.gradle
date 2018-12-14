@@ -1,4 +1,16 @@
 apply plugin: 'com.android.application'
+apply plugin: 'spoon'
+
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.stanfy.spoon:spoon-gradle-plugin:1.2.2'
+    }
+}
 
 android {
     compileSdkVersion 26
@@ -27,4 +39,10 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    androidTestCompile 'com.squareup.spoon:spoon-client:1.7.1'
+}
+
+spoon {
+    debug = true
+    adbTimeout = 30
 }
