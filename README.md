@@ -30,5 +30,5 @@
    example:
    curl -u "<username>:<password>" \
    -X POST "https://api-cloud.browserstack.com/app-automate/espresso/v2/build" \
-   -d '{"app": "bs://<app_id>", "testSuite": "bs:<test_suite_id>", "devices": ["Google Pixel-8.0"], "coverage": true, "enableSpoonFramework": true }' \
+   -d '{"app": "bs://<app_id>", "testSuite": "bs://<test_suite_id>", "devices": ["Google Pixel-8.0"], "coverage": true, "enableSpoonFramework": true }' \
    -H "Content-Type: application/json"
