@@ -26,8 +26,8 @@
 * [Browsers & mobile devices for app-automate testing on BrowserStack](https://www.browserstack.com/list-of-browsers-and-platforms?product=app_automate)
 * [Using REST API to access information about your builds via the command-line interface](https://www.browserstack.com/app-automate/rest-api)
 * [Using Espresso with BrowserStack](https://www.browserstack.com/app-automate/espresso/get-started)
-* [Generating JUnit XML report or Test coverage report using Espresso with BrowserStack](https://www.browserstack.com/docs/app-automate/espresso/view-test-reports)
-   example:
+* [Generating JUnit XML report or Test coverage report using Espresso with BrowserStack](https://www.browserstack.com/docs/app-automate/espresso/view-test-reports). 
+   example:  
    curl -u "<username>:<password>" \
    -X POST "https://api-cloud.browserstack.com/app-automate/espresso/v2/build" \
    -d '{"app": "bs://<app_id>", "testSuite": "bs://<test_suite_id>", "devices": ["Google Pixel-8.0"], "coverage": true, "enableSpoonFramework": true }' \
