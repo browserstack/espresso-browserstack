@@ -1,6 +1,8 @@
 apply plugin: 'com.android.application'
 apply plugin: 'spoon'
 apply plugin: 'jacoco'
+apply plugin: 'com.facebook.testing.screenshot'
+
 jacoco {
     toolVersion='0.7.5.201505241946'
 }
@@ -11,12 +13,13 @@ buildscript {
 
     dependencies {
         classpath 'com.stanfy.spoon:spoon-gradle-plugin:1.2.2'
+        classpath 'com.facebook.testing.screenshot:plugin:0.14.0'
     }
 }
 
 android {
     compileSdkVersion 30
-    dataBinding.enabled = true
+    buildFeatures.dataBinding = true
 
     defaultConfig {
         applicationId "com.sample.browserstack.samplecalculator"
@@ -24,7 +27,8 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+//        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        testInstrumentationRunner "com.sample.browserstack.CustomTestRunner"
     }
     buildTypes {
         release {
