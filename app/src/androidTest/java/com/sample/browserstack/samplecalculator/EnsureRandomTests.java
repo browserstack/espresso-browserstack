@@ -3,10 +3,13 @@ package com.sample.browserstack.samplecalculator;
 import androidx.test.filters.MediumTest;
 import androidx.test.rule.ActivityTestRule;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.test.runner.screenshot.Screenshot;
 
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import java.io.IOException;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
@@ -39,12 +42,14 @@ public class EnsureRandomTests {
     }
 
     @Test
-    public void testZeroDivision() {
+    public void testZeroDivision() throws IOException {
         onView(withId(R.id.buttonTwo)).perform(click());
         onView(withId(R.id.buttonDivide)).perform(click());
         onView(withId(R.id.buttonZero)).perform(click());
         onView(withId(R.id.buttonEqual)).perform(click());
         onView(withId(R.id.editText)).check(matches(withText("∞")));
+
+        Screenshot.capture().process();
     }
 
 }
