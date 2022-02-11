@@ -1,18 +1,21 @@
 package com.sample.browserstack.samplecalculator;
 
-import android.support.test.filters.MediumTest;
-import android.support.test.rule.ActivityTestRule;
-import android.support.test.runner.AndroidJUnit4;
+import androidx.test.filters.MediumTest;
+import androidx.test.rule.ActivityTestRule;
+import androidx.test.ext.junit.runners.AndroidJUnit4;
 
+import com.squareup.spoon.Spoon;
+
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import static android.support.test.espresso.Espresso.onView;
-import static android.support.test.espresso.action.ViewActions.click;
-import static android.support.test.espresso.assertion.ViewAssertions.matches;
-import static android.support.test.espresso.matcher.ViewMatchers.withId;
-import static android.support.test.espresso.matcher.ViewMatchers.withText;
+import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.matcher.ViewMatchers.withId;
+import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
 /**
  * Espresso tests to ensure that simple operations result in
@@ -27,6 +30,14 @@ public class EnsureOperationTests {
     public ActivityTestRule<MainActivity> activityRule =
             new ActivityTestRule<MainActivity>(MainActivity.class);
 
+    private MainActivity mainActivity;
+
+    @Before
+    public void setUp() {
+        mainActivity = activityRule.getActivity();
+    }
+
+
     @Test
     public void ensureAdditionWorks() {
         onView(withId(R.id.buttonOne)).perform(click());
@@ -36,6 +47,7 @@ public class EnsureOperationTests {
         onView(withId(R.id.buttonOne)).perform(click());
         onView(withId(R.id.buttonEqual)).perform(click());
         onView(withId(R.id.editText)).check(matches(withText("33")));
+        Spoon.screenshot(mainActivity, "post_addition");
     }
 
     @Test
@@ -47,6 +59,7 @@ public class EnsureOperationTests {
         onView(withId(R.id.buttonOne)).perform(click());
         onView(withId(R.id.buttonEqual)).perform(click());
         onView(withId(R.id.editText)).check(matches(withText("11")));
+        Spoon.screenshot(mainActivity, "post_subtraction");
     }
 
     @Test
@@ -57,6 +70,7 @@ public class EnsureOperationTests {
         onView(withId(R.id.buttonFive)).perform(click());
         onView(withId(R.id.buttonEqual)).perform(click());
         onView(withId(R.id.editText)).check(matches(withText("60")));
+        Spoon.screenshot(mainActivity, "post_multiplication");
     }
 
     @Test
@@ -67,5 +81,6 @@ public class EnsureOperationTests {
         onView(withId(R.id.buttonThree)).perform(click());
         onView(withId(R.id.buttonEqual)).perform(click());
         onView(withId(R.id.editText)).check(matches(withText("4")));
+        Spoon.screenshot(mainActivity, "post_division");
     }
 }
