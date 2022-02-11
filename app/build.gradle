@@ -39,29 +39,13 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-//        debug {
-//            testCoverageEnabled true
-//        }
+        debug {
+            testCoverageEnabled true
+        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
-    }
-
-    flavorDimensions "devices"
-    productFlavors {
-        tablet {
-            applicationId
-            "com.sample.browserstack.samplecalculator.app.tablet"
-            versionName "1.0-tablet"
-            dimension "devices"
-        }
-        phone {
-            applicationId
-            "com.sample.browserstack.samplecalculator.app.phone"
-            versionName "1.0-phone"
-            dimension "devices"
-        }
     }
 }
 
