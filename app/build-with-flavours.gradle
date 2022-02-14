@@ -1,14 +1,32 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.browserstack.gradle'
+apply plugin: 'spoon'
+apply plugin: 'jacoco'
+apply plugin: "com.browserstack.gradle"
+
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+        mavenLocal()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.stanfy.spoon:spoon-gradle-plugin:1.2.2'
+      //  classpath "gradle.plugin.com.browserstack.gradle:browserstack-gradle-plugin:3.0.3"
+        classpath "com.browserstack:gradle:3.0.3-u3x"
+    }
+}
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 30
     dataBinding.enabled = true
 
     defaultConfig {
         applicationId "com.sample.browserstack.samplecalculator"
         minSdkVersion 15
-        targetSdkVersion 26
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -40,13 +58,24 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:26.1.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+    androidTestImplementation 'com.squareup.spoon:spoon-client:1.7.1'
+    androidTestImplementation 'androidx.test:rules:1.1.1'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+}
+
+spoon {
+    debug = true
+    adbTimeout = 30
 }
 
 browserStackConfig {
-    devices = ['Samsung Galaxy S8-7.0']
+    username = "$System.env.BROWSERSTACK_USERNAME"
+    accessKey = "$System.env.BROWSERSTACK_ACCESS_KEY"
+    customId = "AndroidTestAPK"
+    debug = true
+    configFilePath = "${rootDir}/config-browserstack.json"
 }
