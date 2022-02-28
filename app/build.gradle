@@ -17,8 +17,8 @@ buildscript {
 
     dependencies {
         classpath 'com.stanfy.spoon:spoon-gradle-plugin:1.2.2'
-     //   classpath "gradle.plugin.com.browserstack.gradle:browserstack-gradle-plugin:3.0.3"
-        classpath "com.browserstack:gradle:3.0.4"
+        classpath "gradle.plugin.com.browserstack.gradle:browserstack-gradle-plugin:3.0.3"
+        // classpath "com.browserstack:gradle:3.0.4"
     }
 }
 
