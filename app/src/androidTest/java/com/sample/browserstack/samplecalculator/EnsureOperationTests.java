@@ -4,8 +4,6 @@ import androidx.test.filters.MediumTest;
 import androidx.test.rule.ActivityTestRule;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
-import com.squareup.spoon.Spoon;
-
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -37,6 +35,14 @@ public class EnsureOperationTests {
         mainActivity = activityRule.getActivity();
     }
 
+    void childScreenshotMethod(String screenshotName) {
+        ScreenshotUtils screenshotUtils = new ScreenshotUtils();
+        screenshotUtils.captureScreenshot(screenshotName);
+    }
+
+    void parentScreenshotMethod(String screenshotName) {
+        childScreenshotMethod(screenshotName);
+    }
 
     @Test
     public void ensureAdditionWorks() {
@@ -47,11 +53,16 @@ public class EnsureOperationTests {
         onView(withId(R.id.buttonOne)).perform(click());
         onView(withId(R.id.buttonEqual)).perform(click());
         onView(withId(R.id.editText)).check(matches(withText("33")));
-        Spoon.screenshot(mainActivity, "post_addition");
+
+        ScreenshotUtils screenshotUtils = new ScreenshotUtils();
+        screenshotUtils.captureScreenshot("post_addition");
     }
 
     @Test
     public void ensureSubtractionWorks() {
+        ScreenshotUtils screenshotUtils = new ScreenshotUtils();
+        screenshotUtils.captureScreenshot("pre_subtraction");
+
         onView(withId(R.id.buttonTwo)).perform(click());
         onView(withId(R.id.buttonTwo)).perform(click());
         onView(withId(R.id.buttonSubtract)).perform(click());
@@ -59,7 +70,8 @@ public class EnsureOperationTests {
         onView(withId(R.id.buttonOne)).perform(click());
         onView(withId(R.id.buttonEqual)).perform(click());
         onView(withId(R.id.editText)).check(matches(withText("11")));
-        Spoon.screenshot(mainActivity, "post_subtraction");
+
+        screenshotUtils.captureScreenshot("post_subtraction");
     }
 
     @Test
@@ -70,7 +82,8 @@ public class EnsureOperationTests {
         onView(withId(R.id.buttonFive)).perform(click());
         onView(withId(R.id.buttonEqual)).perform(click());
         onView(withId(R.id.editText)).check(matches(withText("60")));
-        Spoon.screenshot(mainActivity, "post_multiplication");
+
+        childScreenshotMethod("post_multiplication");
     }
 
     @Test
@@ -81,6 +94,7 @@ public class EnsureOperationTests {
         onView(withId(R.id.buttonThree)).perform(click());
         onView(withId(R.id.buttonEqual)).perform(click());
         onView(withId(R.id.editText)).check(matches(withText("4")));
-        Spoon.screenshot(mainActivity, "post_division");
+
+        parentScreenshotMethod("post_division");
     }
 }
