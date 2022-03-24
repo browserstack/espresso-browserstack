@@ -12,12 +12,14 @@ import androidx.test.runner.screenshot.Screenshot;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.regex.Pattern;
 
 public class ScreenshotUtils {
 
     private final String methodName;
     private final String className;
     private final CustomScreencaptureProcessor customProcesssor;
+    private final Pattern SCREENSHOT_NAME_VALIDATION = Pattern.compile("[a-zA-Z0-9_-]+");
 
     ScreenshotUtils() {
         StackTraceElement testClass = findTestClassTraceElement(Thread.currentThread().getStackTrace());
@@ -27,14 +29,19 @@ public class ScreenshotUtils {
     }
 
     public void captureScreenshot(String screenshotName) {
-        ScreenCapture capture = Screenshot.capture();
-        capture.setFormat(Bitmap.CompressFormat.PNG);
-        capture.setName(screenshotName);
+        // ScreenshotName failing to pass this regex matcher will be skipped.
+        if (!SCREENSHOT_NAME_VALIDATION.matcher(screenshotName).matches()) {
+            throw new IllegalArgumentException("ScreenshotName must match " + SCREENSHOT_NAME_VALIDATION.pattern() + ".");
+        } else {
+            ScreenCapture capture = Screenshot.capture();
+            capture.setFormat(Bitmap.CompressFormat.PNG);
+            capture.setName(screenshotName);
 
-        try {
-            customProcesssor.process(capture);
-        } catch (IOException e) {
-            e.printStackTrace();
+            try {
+                customProcesssor.process(capture);
+            } catch (IOException e) {
+                throw new RuntimeException("Unable to capture screenshot.", e);
+            }
         }
     }
 
