@@ -36,8 +36,7 @@ public class EnsureOperationTests {
     }
 
     void childScreenshotMethod(String screenshotName) {
-        ScreenshotUtils screenshotUtils = new ScreenshotUtils();
-        screenshotUtils.captureScreenshot(screenshotName);
+        NativeScreenshot.capture(screenshotName);
     }
 
     void parentScreenshotMethod(String screenshotName) {
@@ -53,16 +52,12 @@ public class EnsureOperationTests {
         onView(withId(R.id.buttonOne)).perform(click());
         onView(withId(R.id.buttonEqual)).perform(click());
         onView(withId(R.id.editText)).check(matches(withText("33")));
-
-        ScreenshotUtils screenshotUtils = new ScreenshotUtils();
-        screenshotUtils.captureScreenshot("post_addition");
+        NativeScreenshot.capture("post_addition");
     }
 
     @Test
     public void ensureSubtractionWorks() {
-        ScreenshotUtils screenshotUtils = new ScreenshotUtils();
-        screenshotUtils.captureScreenshot("pre_subtraction");
-
+        NativeScreenshot.capture("pre_subtraction");
         onView(withId(R.id.buttonTwo)).perform(click());
         onView(withId(R.id.buttonTwo)).perform(click());
         onView(withId(R.id.buttonSubtract)).perform(click());
@@ -70,8 +65,7 @@ public class EnsureOperationTests {
         onView(withId(R.id.buttonOne)).perform(click());
         onView(withId(R.id.buttonEqual)).perform(click());
         onView(withId(R.id.editText)).check(matches(withText("11")));
-
-        screenshotUtils.captureScreenshot("post_subtraction");
+        NativeScreenshot.capture("post_subtraction");
     }
 
     @Test

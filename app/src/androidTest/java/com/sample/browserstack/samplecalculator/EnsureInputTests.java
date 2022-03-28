@@ -37,24 +37,18 @@ public class EnsureInputTests {
 
     @Test
     public void ensureSingleInputIsHandled() {
-        ScreenshotUtils screenshotUtils = new ScreenshotUtils();
-        screenshotUtils.captureScreenshot("initial_state");
-
+        NativeScreenshot.capture("initial_state");
         onView(withId(R.id.buttonOne)).perform(click());
         onView(withId(R.id.editText)).check(matches(withText("1")));
-
-        screenshotUtils.captureScreenshot("post_single_btn_click");
+        NativeScreenshot.capture("post_single_btn_click");
     }
 
     @Test
     public void ensureMultipleInputIsHandled() {
-        ScreenshotUtils screenshotUtils = new ScreenshotUtils();
-        screenshotUtils.captureScreenshot("initial_state");
-
+        NativeScreenshot.capture("initial_state");
         onView(withId(R.id.buttonOne)).perform(click());
         onView(withId(R.id.buttonTwo)).perform(click());
         onView(withId(R.id.editText)).check(matches(withText("12")));
-
-        screenshotUtils.captureScreenshot("post_multiple_btn_click");
+        NativeScreenshot.capture("post_multiple_btn_click");
     }
 }
