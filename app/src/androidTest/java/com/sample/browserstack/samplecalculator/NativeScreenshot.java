@@ -21,7 +21,7 @@ public final class NativeScreenshot {
     private NativeScreenshot() {}
 
     /**
-     * Captures screenshot using Android Screenshot library and stores in the filesystem.
+     * Captures screenshot using Androidx Screenshot library and stores in the filesystem.
      * Special Cases:
      * If the screenshotName contains spaces or does not pass validation, the corresponding
      * screenshot is not visible on BrowserStack's Dashboard.

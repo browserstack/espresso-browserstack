@@ -35,14 +35,6 @@ public class EnsureOperationTests {
         mainActivity = activityRule.getActivity();
     }
 
-    void childScreenshotMethod(String screenshotName) {
-        NativeScreenshot.capture(screenshotName);
-    }
-
-    void parentScreenshotMethod(String screenshotName) {
-        childScreenshotMethod(screenshotName);
-    }
-
     @Test
     public void ensureAdditionWorks() {
         onView(withId(R.id.buttonOne)).perform(click());
@@ -57,7 +49,6 @@ public class EnsureOperationTests {
 
     @Test
     public void ensureSubtractionWorks() {
-        NativeScreenshot.capture("pre_subtraction");
         onView(withId(R.id.buttonTwo)).perform(click());
         onView(withId(R.id.buttonTwo)).perform(click());
         onView(withId(R.id.buttonSubtract)).perform(click());
@@ -77,7 +68,7 @@ public class EnsureOperationTests {
         onView(withId(R.id.buttonEqual)).perform(click());
         onView(withId(R.id.editText)).check(matches(withText("60")));
 
-        childScreenshotMethod("post_multiplication");
+        NativeScreenshot.capture("post_multiplication");
     }
 
     @Test
@@ -89,6 +80,6 @@ public class EnsureOperationTests {
         onView(withId(R.id.buttonEqual)).perform(click());
         onView(withId(R.id.editText)).check(matches(withText("4")));
 
-        parentScreenshotMethod("post_division");
+        NativeScreenshot.capture("post_division");
     }
 }
