@@ -88,20 +88,8 @@ public final class NativeScreenshot {
     }
 
     private static class EspressoScreenCaptureProcessor extends BasicScreenCaptureProcessor {
-        private static final String SCREENSHOT = "screenshot";
+        private static final String SCREENSHOT = "screenshots";
 
-        /**
-         * There are 2 kinds of directories where screenshots can be stored:
-         * Option 1:
-         *  Path: /storage/emulated/0/Android/data/<bundleId>/files/screenshots/<className>
-         *  Code snippet:
-         *      File screenshotDir = new File(String.valueOf(ApplicationProvider.getApplicationContext().getExternalFilesDir(null)), SCREENSHOT);
-         *
-         * Option 2:
-         *  Path: /storage/emulated/0/Download/screenshots
-         *  Code snippet:
-         *      File screenshotDir = new File(String.valueOf(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)), SCREENSHOT);
-         */
         EspressoScreenCaptureProcessor() {
             File screenshotDir = new File(String.valueOf(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)), SCREENSHOT);
             File classDir = new File(screenshotDir, className);
