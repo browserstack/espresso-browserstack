@@ -4,8 +4,6 @@ import androidx.test.filters.MediumTest;
 import androidx.test.rule.ActivityTestRule;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
-import com.squareup.spoon.Spoon;
-
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -37,7 +35,6 @@ public class EnsureOperationTests {
         mainActivity = activityRule.getActivity();
     }
 
-
     @Test
     public void ensureAdditionWorks() {
         onView(withId(R.id.buttonOne)).perform(click());
@@ -47,7 +44,7 @@ public class EnsureOperationTests {
         onView(withId(R.id.buttonOne)).perform(click());
         onView(withId(R.id.buttonEqual)).perform(click());
         onView(withId(R.id.editText)).check(matches(withText("33")));
-        Spoon.screenshot(mainActivity, "post_addition");
+        NativeScreenshot.capture("post_addition");
     }
 
     @Test
@@ -59,7 +56,7 @@ public class EnsureOperationTests {
         onView(withId(R.id.buttonOne)).perform(click());
         onView(withId(R.id.buttonEqual)).perform(click());
         onView(withId(R.id.editText)).check(matches(withText("11")));
-        Spoon.screenshot(mainActivity, "post_subtraction");
+        NativeScreenshot.capture("post_subtraction");
     }
 
     @Test
@@ -70,7 +67,8 @@ public class EnsureOperationTests {
         onView(withId(R.id.buttonFive)).perform(click());
         onView(withId(R.id.buttonEqual)).perform(click());
         onView(withId(R.id.editText)).check(matches(withText("60")));
-        Spoon.screenshot(mainActivity, "post_multiplication");
+
+        NativeScreenshot.capture("post_multiplication");
     }
 
     @Test
@@ -81,6 +79,7 @@ public class EnsureOperationTests {
         onView(withId(R.id.buttonThree)).perform(click());
         onView(withId(R.id.buttonEqual)).perform(click());
         onView(withId(R.id.editText)).check(matches(withText("4")));
-        Spoon.screenshot(mainActivity, "post_division");
+
+        NativeScreenshot.capture("post_division");
     }
 }
