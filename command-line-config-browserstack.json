@@ -1,0 +1,11 @@
+{
+  "devices": [
+    "Google Pixel 3 XL-9.0",
+  ],
+  "deviceLogs": true,
+  "networkLogs": true,
+  "project": "Gradle plugin - argument",
+  "shards": {
+    "numberOfShards": 1
+  }
+} 
