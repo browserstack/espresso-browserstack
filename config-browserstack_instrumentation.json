@@ -1,0 +1,14 @@
+{
+	"devices": [
+		"Google Pixel 3 XL-9.0"
+	],
+	"deviceLogs": true,
+	"networkLogs": true,
+	"project": "Awesome gradle plugin build",
+	"instrumentationOptions": {
+        "key1": "value1",
+        "key2": "value2",
+        "key3": 1
+    }
+}
+
