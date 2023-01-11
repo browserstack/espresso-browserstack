@@ -8,7 +8,7 @@
 
 ## Setup
 
-* Clone the repository
+* Clone the Repository
 * Download JDK8 from [here](https://www.oracle.com/in/java/technologies/javase/javase-jdk8-downloads.html)
 * Update your JDK location via Project Structure (Android Studio)
     * Go to File > Project Structure.
