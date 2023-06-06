@@ -30,6 +30,7 @@ public class EnsureRandomTests {
             new ActivityTestRule<MainActivity>(MainActivity.class);
 
     @Test
+    @Annotation3(value = "live")
     public void testZeroMultiplication() {
         onView(withId(R.id.buttonTwo)).perform(click());
         onView(withId(R.id.buttonMultiply)).perform(click());
@@ -39,6 +40,7 @@ public class EnsureRandomTests {
     }
 
     @Test
+    @Annotation3(value = "hst")
     public void testZeroDivision() {
         onView(withId(R.id.buttonTwo)).perform(click());
         onView(withId(R.id.buttonDivide)).perform(click());

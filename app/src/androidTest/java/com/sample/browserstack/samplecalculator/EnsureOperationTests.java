@@ -60,6 +60,8 @@ public class EnsureOperationTests {
     }
 
     @Test
+    @Annotation2
+    @Annotation1
     public void ensureMultiplicationWorks() {
         onView(withId(R.id.buttonOne)).perform(click());
         onView(withId(R.id.buttonTwo)).perform(click());
@@ -72,6 +74,7 @@ public class EnsureOperationTests {
     }
 
     @Test
+    @Annotation3(value = "hst")
     public void ensureDivisionWorks() {
         onView(withId(R.id.buttonOne)).perform(click());
         onView(withId(R.id.buttonTwo)).perform(click());

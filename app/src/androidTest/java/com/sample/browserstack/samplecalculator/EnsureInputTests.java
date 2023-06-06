@@ -46,6 +46,7 @@ public class EnsureInputTests {
 
     @Test
     @Annotation2
+    @Annotation1
     public void ensureMultipleInputIsHandled() {
         NativeScreenshot.capture("initial_state");
         onView(withId(R.id.buttonOne)).perform(click());
