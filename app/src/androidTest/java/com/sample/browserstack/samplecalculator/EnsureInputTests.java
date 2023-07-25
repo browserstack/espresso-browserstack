@@ -36,6 +36,7 @@ public class EnsureInputTests {
     }
 
     @Test
+    @Annotation1
     public void ensureSingleInputIsHandled() {
         NativeScreenshot.capture("initial_state");
         onView(withId(R.id.buttonOne)).perform(click());
@@ -44,6 +45,7 @@ public class EnsureInputTests {
     }
 
     @Test
+    @Annotation2
     public void ensureMultipleInputIsHandled() {
         NativeScreenshot.capture("initial_state");
         onView(withId(R.id.buttonOne)).perform(click());

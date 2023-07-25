@@ -21,6 +21,15 @@
 ## Notes
 * You can view your test results on the [BrowserStack app-automate dashboard](https://www.browserstack.com/app-automate)
 
+## Filtering
+* You can filter your tests by passing annotation in the am command as well. This repository already contains 2 annotations @Annotation1 , @Annotation 2
+
+* Usage
+    * This should only run tests with @Annotation1
+    ```
+    adb shell am instrument -w -e  annotation com.sample.browserstack.samplecalculator.Annotation1  com.sample.browserstack.samplecalculator.test/androidx.test.runner.AndroidJUnitRunner
+    ```
+
 ## Additional Resources
 * [Customizing your tests on BrowserStack](https://www.browserstack.com/app-automate/capabilities)
 * [Browsers & mobile devices for app-automate testing on BrowserStack](https://www.browserstack.com/list-of-browsers-and-platforms?product=app_automate)
