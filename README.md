@@ -9,11 +9,12 @@
 ## Setup
 
 * Clone the repo
-* Download JDK8 from [here](https://www.oracle.com/in/java/technologies/javase/javase-jdk8-downloads.html)
-* Update your JDK location via Project Structure (Android Studio)
+* Download JDK8 from [here](https://www.oracle.com/java/technologies/javase/javase8u211-later-archive-downloads.html)
+* Select JDK 8 location via Project Structure (Android Studio)
     * Go to File > Project Structure.
     * Select the SDK Location section in the list of the left.
     * Enter the absolute path of your installed JDK in the text box.
+    * Alternatively update $JAVA_HOME system env if using the command line.
 * Build the main application: `./gradlew assemble` (apk will be generated in the `app/build/outputs/apk/debug/` directory)
 * Build the test application: `./gradlew assembleAndroidTest` (apk will be generated in the `app/build/outputs/apk/androidTest/debug/` directory)
 * Upload both the apk files to BrowserStack and start a session. Refer our documentation for details: [Using Espresso with BrowserStack](https://www.browserstack.com/app-automate/espresso/get-started)
