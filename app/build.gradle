@@ -20,6 +20,19 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        // tell Gradle where our native CMake file lives
+        externalNativeBuild {
+            cmake {
+                // you can also restrict to specific ABIs here
+                abiFilters "arm64-v8a", "armeabi-v7a"
+            }
+        }
+    }
+    externalNativeBuild {
+        cmake {
+            path "src/main/cpp/CMakeLists.txt"
+            version "3.10.2"  // or match your installed CMake version
+        }
     }
     buildTypes {
         release {
