@@ -11,6 +11,13 @@ import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
 
+    static {
+        // Load our native library at startup
+        System.loadLibrary("crashlib");
+    }
+    // Native method declaration
+    private native void nativeCrash();
+
     private double firstNum = Double.NaN;
     private double secondNum;
     private boolean equalClicked = false;
@@ -24,6 +31,25 @@ public class MainActivity extends AppCompatActivity {
 
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+
+        // Show the crash button and hook it into nativeCrash()
+        binding.buttonCrash.setVisibility(View.VISIBLE);
+        binding.buttonCrash.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nativeCrash();  // <— this will SIGSEGV in native code
+            }
+        });
+
+        // 2) Java crash button
+        binding.buttonCrashJava.setVisibility(View.VISIBLE);
+        binding.buttonCrashJava.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                throw new RuntimeException("💥 Deliberate Java crash from test button");
+            }
+        });
+
         binding.editText.setText("");
 
         binding.buttonClear.setOnClickListener(new View.OnClickListener() {
