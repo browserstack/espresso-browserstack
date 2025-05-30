@@ -38,20 +38,18 @@ public class ExampleInstrumentedTest {
     }
 
     @Test
-    public void testCalculatorBasicOperation() {
+    public void testLoginSuccess() {
         android.util.Log.d("TRANSFORMATION_LOGS", "IN TEST");
-        Espresso.onView(withId(R.id.buttonTwo)).perform(click());
-        Espresso.onView(withId(R.id.buttonAdd)).perform(click());
-        Espresso.onView(withId(R.id.buttonThree)).perform(click());
-        Espresso.onView(withId(R.id.buttonEqual)).perform(click());
+        Espresso.onView(withId(R.id.username)).perform(replaceText("admin"));
+        Espresso.onView(withId(R.id.password)).perform(replaceText("12345"));
+        Espresso.onView(withId(R.id.loginbtn)).perform(click());
     }
 
     @Test
     public void exceptionFailedTest() throws Exception {
-        Espresso.onView(withId(R.id.buttonFive)).perform(click());
-        Espresso.onView(withId(R.id.buttonMultiply)).perform(click());
-        Espresso.onView(withId(R.id.buttonTwo)).perform(click());
-        Espresso.onView(withId(R.id.buttonEqual)).perform(click());
+        Espresso.onView(withId(R.id.username)).perform(replaceText("admin"));
+        Espresso.onView(withId(R.id.password)).perform(replaceText("admin"));
+        Espresso.onView(withId(R.id.loginbtn)).perform(click());
         throw new Exception("EXCEPTION FROM TEST");
     }
 
@@ -60,10 +58,9 @@ public class ExampleInstrumentedTest {
     public void assertionFailedTest() throws Exception {
         Log.d("TEST_LOGS", "testStarted");
         
-        Espresso.onView(withId(R.id.buttonOne)).perform(click());
-        Espresso.onView(withId(R.id.buttonAdd)).perform(click());
-        Espresso.onView(withId(R.id.buttonOne)).perform(click());
-        Espresso.onView(withId(R.id.buttonEqual)).perform(click());
+        Espresso.onView(withId(R.id.username)).perform(replaceText("admin"));
+        Espresso.onView(withId(R.id.password)).perform(replaceText("12345"));
+        Espresso.onView(withId(R.id.loginbtn)).perform(click());
 
         Log.d("PERFORM_SCAN_LOGS", "beforeScan");
         AccessibilityUtils.performEspressoAppAccessibilityScan("");
@@ -72,13 +69,16 @@ public class ExampleInstrumentedTest {
         Thread.sleep(10000);
 
         Log.d("A11Y_RESULTS_SUMMARY", AccessibilityUtils.getResultsSummary().toString());
+        // AccessibilityUtils.getResultsSummary();
         Log.d("A11Y_RESULTS", AccessibilityUtils.getResults().toString());
+        // AccessibilityUtils.getResults();
 
         Assert.assertTrue(false);
         Thread.sleep(2000);
 
         Log.d("TEST_LOGS", "testEnded");
     }
+
 
     @Test
     @Category(MainActivity.class)
@@ -88,8 +88,11 @@ public class ExampleInstrumentedTest {
         Assert.assertTrue(true);
         Thread.sleep(10000);
 
+
         Log.d("A11Y_RESULTS_SUMMARY", AccessibilityUtils.getResultsSummary().toString());
+        // AccessibilityUtils.getResultsSummary();
         Log.d("A11Y_RESULTS", AccessibilityUtils.getResults().toString());
+        // AccessibilityUtils.getResults();
         
         Log.d("TEST_LOGS", "testEnded");
     }
@@ -106,6 +109,7 @@ public class ExampleInstrumentedTest {
     public void testIgnoredWithMessage() throws InterruptedException {
         Log.d("TRANSFORMATION_LOGS", "testIgnoredWithMessage");
         Thread.sleep(2000);
+
     }
 
     @Test
@@ -114,3 +118,4 @@ public class ExampleInstrumentedTest {
         Thread.sleep(2000);
     }
 }
+

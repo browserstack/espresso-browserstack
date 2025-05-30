@@ -1,7 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
     id 'com.browserstack.gradle-tool'
-    id 'jacoco'
 }
 
 android {
@@ -44,15 +43,17 @@ dependencies {
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
 
-    androidTestImplementation group: 'com.browserstack', name: 'browserstack-java-sdk', version: '1.31.0'
-}
+    androidTestImplementation(group: 'com.browserstack', name: 'browserstack-java-sdk', version: '1.32.12') {
+        exclude group: 'com.google.code.findbugs', module: 'jsr305'
+    }
 
-jacoco {
-    toolVersion = '0.8.8'
+    configurations.all {
+        exclude group: 'com.google.code.findbugs', module: 'jsr305'
+    }
 }
 
 task printSdkVersion {
     doLast {
-        println android.compileSdk
+        println android.compileSdkVersion
     }
 }

@@ -2,11 +2,12 @@
    Sample backup rules file; uncomment and customize as necessary.
    See https://developer.android.com/guide/topics/data/autobackup
    for details.
-   Note: This file is ignored for devices older that API 23 even if they contain android:fullBackupContent="true".
+   Note: This file is ignored for devices older that API 31
+   See https://developer.android.com/about/versions/12/backup-restore
 -->
 <full-backup-content>
-    <!-- TODO: Use <include> and <exclude> to control what is backed up.
-        <include domain=["file" | "database" | "sharedpref" | "external" | "root"] path="string" />
-        <exclude domain=["file" | "database" | "sharedpref" | "external" | "root"] path="string" />
-    -->
+    <!--
+   <include domain="sharedpref" path="."/>
+   <exclude domain="sharedpref" path="device.xml"/>
+-->
 </full-backup-content>
