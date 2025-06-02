@@ -44,7 +44,13 @@ dependencies {
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
 
-    androidTestImplementation group: 'com.browserstack', name: 'browserstack-java-sdk', version: '1.31.0'
+    androidTestImplementation(group: 'com.browserstack', name: 'browserstack-java-sdk', version: 'latest.release') {
+        exclude group: 'com.google.code.findbugs', module: 'jsr305'
+    }
+
+    configurations.androidTestImplementation {
+        exclude group: 'com.google.code.findbugs', module: 'jsr305'
+    }
 }
 
 jacoco {
@@ -53,6 +59,6 @@ jacoco {
 
 task printSdkVersion {
     doLast {
-        println android.compileSdk
+        println android.compileSdkVersion
     }
 }
