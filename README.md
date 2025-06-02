@@ -20,11 +20,11 @@
 
 ### Test Reporting & Analytics
 
-* To integrate BrowserStack Test Reporting & Analytics with Espresso refer our documentation: [Test Reporting & Analytics on Espresso](https://www.browserstack.com/docs/test-reporting-and-analytics/quick-start/espresso)
+* To integrate BrowserStack Test Reporting & Analytics with Espresso, refer to our documentation: [Test Reporting & Analytics on Espresso](https://www.browserstack.com/docs/test-reporting-and-analytics/quick-start/espresso)
 
 ### App Accessibility Testing
 
-* To add accessibility checks to functional tests and generate comprehensive reports of accessibility issues refer our documentation: [Integrate Espresso test suite with app accessibility testing](https://www.browserstack.com/docs/app-accessibility/automated-tests/get-started/espresso/integrate-with-app-automate)
+* To integrate BrowserStack Accessibility to functional tests and generate comprehensive reports of accessibility issues, refer to our documentation: [Integrate Espresso test suite with app accessibility testing](https://www.browserstack.com/docs/app-accessibility/automated-tests/get-started/espresso/integrate-with-app-automate)
 
 ## Notes
 * You can view your test results on the [BrowserStack app-automate dashboard](https://www.browserstack.com/app-automate)
