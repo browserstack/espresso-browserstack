@@ -20,7 +20,7 @@
 
 ### Test Reporting & Analytics
 
-* to integrate BrowserStack Test Reporting & Analytics with Espresso refer our documentation: [Test Reporting & Analytics on Espresso](https://www.browserstack.com/docs/test-reporting-and-analytics/quick-start/espresso)
+* To integrate BrowserStack Test Reporting & Analytics with Espresso refer our documentation: [Test Reporting & Analytics on Espresso](https://www.browserstack.com/docs/test-reporting-and-analytics/quick-start/espresso)
 
 ### App Accessibility Testing
 
