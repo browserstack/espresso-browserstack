@@ -18,6 +18,14 @@
 * Build the test application: `./gradlew assembleAndroidTest` (apk will be generated in the `app/build/outputs/apk/androidTest/debug/` directory)
 * Upload both the apk files to BrowserStack and start a session. Refer our documentation for details: [Using Espresso with BrowserStack](https://www.browserstack.com/app-automate/espresso/get-started)
 
+### Test Reporting & Analytics
+
+* to integrate BrowserStack Test Reporting & Analytics with Espresso refer our documentation: [Test Reporting & Analytics on Espresso](https://www.browserstack.com/docs/test-reporting-and-analytics/quick-start/espresso)
+
+### App Accessibility Testing
+
+* To add accessibility checks to functional tests and generate comprehensive reports of accessibility issues refer our documentation: [Integrate Espresso test suite with app accessibility testing](https://www.browserstack.com/docs/app-accessibility/automated-tests/get-started/espresso/integrate-with-app-automate)
+
 ## Notes
 * You can view your test results on the [BrowserStack app-automate dashboard](https://www.browserstack.com/app-automate)
 
