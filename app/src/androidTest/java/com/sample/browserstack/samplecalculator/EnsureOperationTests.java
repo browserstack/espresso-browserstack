@@ -1,7 +1,7 @@
 package com.sample.browserstack.samplecalculator;
 
 import androidx.test.filters.MediumTest;
-import androidx.test.rule.ActivityTestRule;
+import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
 import org.junit.Before;
@@ -25,14 +25,13 @@ import static androidx.test.espresso.matcher.ViewMatchers.withText;
 public class EnsureOperationTests {
 
     @Rule
-    public ActivityTestRule<MainActivity> activityRule =
-            new ActivityTestRule<MainActivity>(MainActivity.class);
-
-    private MainActivity mainActivity;
+    public ActivityScenarioRule<MainActivity> activityScenarioRule =
+            new ActivityScenarioRule<>(MainActivity.class);
 
     @Before
     public void setUp() {
-        mainActivity = activityRule.getActivity();
+        // ActivityScenarioRule handles activity initialization automatically
+        // No need to manually get activity reference in modern testing
     }
 
     @Test
