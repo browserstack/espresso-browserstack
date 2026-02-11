@@ -1,7 +1,7 @@
 package com.sample.browserstack.samplecalculator;
 
 import androidx.test.filters.MediumTest;
-import androidx.test.rule.ActivityTestRule;
+import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
 import org.junit.Rule;
@@ -26,8 +26,8 @@ import static androidx.test.espresso.matcher.ViewMatchers.withText;
 public class EnsureRandomTests {
 
     @Rule
-    public ActivityTestRule<MainActivity> activityRule =
-            new ActivityTestRule<MainActivity>(MainActivity.class);
+    public ActivityScenarioRule<MainActivity> activityScenarioRule =
+            new ActivityScenarioRule<>(MainActivity.class);
 
     @Test
     public void testZeroMultiplication() {
